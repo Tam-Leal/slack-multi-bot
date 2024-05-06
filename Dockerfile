@@ -4,6 +4,13 @@ FROM python:3.9-slim
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
 
+# Atualiza a lista de pacotes e instala as dependências necessárias
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copia os arquivos de requisitos primeiro, para aproveitar o cache da camada
 COPY requirements.txt .
 
