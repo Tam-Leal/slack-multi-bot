@@ -1,0 +1,8 @@
+slack-bolt
+openai==0.28.0
+Flask
+Pillow
+requests
+python-dotenv
+pandas
+psycopg2
