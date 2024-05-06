@@ -1,8 +1,7 @@
+slack-sdk
 slack-bolt
 openai==0.28.0
-Flask
-Pillow
-requests
 python-dotenv
-pandas
+Flask
 psycopg2
+pandas
