@@ -3,5 +3,5 @@ slack-bolt
 openai==0.28.0
 python-dotenv
 Flask
-psycopg2
+psycopg2==2.9.9
 pandas
