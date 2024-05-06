@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Instala as dependências
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --verbose
 
 # Copia o restante dos arquivos do seu projeto para o diretório de trabalho
 COPY . .
