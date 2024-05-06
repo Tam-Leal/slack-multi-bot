@@ -8,6 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
+    build-essential \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
@@ -15,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 
 # Instala as dependências
-RUN python -m pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --verbose
 
 # Copia o restante dos arquivos do seu projeto para o diretório de trabalho
 COPY . .
