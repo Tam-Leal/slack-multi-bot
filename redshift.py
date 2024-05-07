@@ -7,14 +7,15 @@ import os
 # Função para conectar ao Redshift
 load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
 
+host = os.getenv('REDSHIFT_HOST')
+port = os.getenv('REDSHIFT_PORT')
+dbname = os.getenv('REDSHIFT_DBNAME')
+user = os.getenv('REDSHIFT_USER')
+password = os.getenv('REDSHIFT_PASSWORD')
+
 
 # Função para conectar ao Redshift usando variáveis de ambiente
-def connect_to_redshift():
-    host = os.getenv('REDSHIFT_HOST')
-    port = os.getenv('REDSHIFT_PORT')
-    dbname = os.getenv('REDSHIFT_DBNAME')
-    user = os.getenv('REDSHIFT_USER')
-    password = os.getenv('REDSHIFT_PASSWORD')
+def connect_to_redshift(host, port, dbname, user, password):
     conn_string = f"dbname='{dbname}' user='{user}' host='{host}' password='{password}' port='{port}'"
     try:
         conn = psycopg2.connect(conn_string)
@@ -98,7 +99,7 @@ def rename_dataframe_columns(df, conn):
 
 
 def main():
-    conn = connect_to_redshift()
+    conn = connect_to_redshift(host, port, dbname, user, password)
     start_time = time.time()
 
     if conn is not None:
