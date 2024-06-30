@@ -24,5 +24,5 @@ COPY . .
 # Expõe a porta em que o Flask será executado
 EXPOSE 3000
 
-# Define o comando para rodar a aplicação
-CMD ["python", "buttons-interaction.py"]
+# Define o comando para rodar a aplicação com Gunicorn
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:3000", "buttons-interaction:app"]
