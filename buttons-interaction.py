@@ -227,16 +227,20 @@ def handle_count_to_ten(ack, body, say):
 
 
 if __name__ == "__main__":
-    from threading import Thread
-
-
-    def run_flask():
-        port = int(os.environ.get("PORT", 3000))
-        app.run(host="0.0.0.0", port=port)
-
-
-    flask_thread = Thread(target=run_flask)
-    flask_thread.start()
-
     handler = SocketModeHandler(slack_app, SLACK_APP_TOKEN)
     handler.start()
+
+# if __name__ == "__main__":
+#     from threading import Thread
+#
+#
+#     def run_flask():
+#         port = int(os.environ.get("PORT", 3000))
+#         app.run(host="0.0.0.0", port=port)
+#
+#
+#     flask_thread = Thread(target=run_flask)
+#     flask_thread.start()
+#
+#     handler = SocketModeHandler(slack_app, SLACK_APP_TOKEN)
+#     handler.start()
