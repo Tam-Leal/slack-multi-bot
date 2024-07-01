@@ -5,4 +5,4 @@ python-dotenv
 Flask
 psycopg2==2.9.9
 pandas
-gunicorn
+gunicorn==22.0.0
