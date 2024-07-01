@@ -8,7 +8,7 @@ import openai
 import time
 import pandas as pd
 import io
-from redshift import main
+from app.redshift import main
 from flask import Flask, jsonify
 
 # Load environment variables
