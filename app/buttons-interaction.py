@@ -24,18 +24,15 @@ slack_app = App(token=SLACK_BOT_TOKEN)
 
 app = Flask(__name__)
 
-
 # Rota de saúde para o Render verificar se o serviço está ativo
 @app.route("/health")
 def health_check():
     return jsonify({"status": "ok"}), 200
 
-
 # Rota raiz para evitar erros 404
 @app.route("/")
 def index():
     return "Hello, World!"
-
 
 def send_buttons(channel_id):
     client = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
@@ -116,7 +113,6 @@ def send_buttons(channel_id):
     except SlackApiError as e:
         print(f"Error: {e}")
 
-
 def count_to_ten(channel_id):
     client = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
     response = client.chat_postMessage(channel=channel_id, text="Counting: 0")
@@ -125,7 +121,6 @@ def count_to_ten(channel_id):
         time.sleep(1)
         new_text = f"Counting: {i}"
         client.chat_update(channel=channel_id, ts=ts, text=new_text)
-
 
 def generate_csv_and_upload(channel_id):
     data = {
@@ -150,14 +145,12 @@ def generate_csv_and_upload(channel_id):
     finally:
         output.close()
 
-
 @slack_app.action("generate_csv")
 def handle_generate_csv(ack, body, say):
     ack()
     say(text="Processing your request, please wait... :hourglass_flowing_sand:")
     channel_id = body['channel']['id']
     generate_csv_and_upload(channel_id)
-
 
 @slack_app.action("generate_redshift_csv")
 def handle_generate_redshift_csv(ack, body, say):
@@ -184,7 +177,6 @@ def handle_generate_redshift_csv(ack, body, say):
     except Exception as e:
         say(f"An error occurred while generating or uploading the CSV: {e}")
 
-
 @slack_app.event("message")
 def handle_message_events(body, say):
     event = body['event']
@@ -192,30 +184,25 @@ def handle_message_events(body, say):
         return
     send_buttons(event['channel'])
 
-
 @slack_app.action("missing_images")
 def handle_missing_images(ack, body, say):
     ack()
     say(text="Running script to search for missing images...")
-
 
 @slack_app.action("text_formatting")
 def handle_text_formatting(ack, body, say):
     ack()
     say(text="Running script to correct text formatting...")
 
-
 @slack_app.action("wrong_sentences")
 def handle_wrong_sentences(ack, body, say):
     ack()
     say(text="Running script to correct incorrect sentences...")
 
-
 @slack_app.action("misspelled_words")
 def handle_misspelled_words(ack, body, say):
     ack()
     say(text="Running script to correct misspelled words...")
-
 
 @slack_app.action("count_to_ten")
 def handle_count_to_ten(ack, body, say):
@@ -225,10 +212,10 @@ def handle_count_to_ten(ack, body, say):
     time.sleep(2)
     count_to_ten(channel_id)
 
-
 if __name__ == "__main__":
     handler = SocketModeHandler(slack_app, SLACK_APP_TOKEN)
     handler.start()
+
 
 # if __name__ == "__main__":
 #     from threading import Thread
