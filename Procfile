@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -b 0.0.0.0:$PORT buttons-interaction:app
+gunicorn -w 4 -b 0.0.0.0:3000 buttons-interaction:app
