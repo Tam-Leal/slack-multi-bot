@@ -25,4 +25,4 @@ COPY . .
 EXPOSE 3000
 
 # Define o comando para rodar a aplicação com Gunicorn
-CMD ["sh", "-c", "gunicorn -w 4 -b 0.0.0.0:${PORT} buttons-interaction:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:3000", "buttons-interaction:app"]
