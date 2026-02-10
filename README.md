@@ -50,7 +50,7 @@ An interactive Slack bot built with **Slack Bolt (Socket Mode)** that provides a
    (Magento catalog)
 ```
 
-Both the Slack bot and the Flask server run concurrently using Python threads.
+Both the Slack bot and the Flask server run concurrently using Python threads. Socket Mode eliminates the need for a public-facing URL, making local development and firewall-restricted environments straightforward.
 
 ## Available Actions
 
