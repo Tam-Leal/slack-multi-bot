@@ -6,6 +6,7 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 ![Amazon Redshift](https://img.shields.io/badge/Amazon_Redshift-8C4FFF?logo=amazonredshift&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=white)
 
 An interactive Slack bot built with **Slack Bolt (Socket Mode)** that provides a button-driven interface for running automated tasks — including data extraction from **Amazon Redshift** and CSV report generation — directly from Slack channels.
 
