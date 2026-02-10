@@ -134,6 +134,12 @@ slack-multi-bot/
 └── .gitignore
 ```
 
+## Deployment
+
+The included `Dockerfile` handles the full build process, and the Flask health check endpoint (`/health`) ensures the service is properly monitored by the hosting platform.
+
+Compatible with any container-based platform (AWS ECS, Railway, Render, Fly.io) — just make sure the required environment variables are set.
+
 ## License
 
 This project is proprietary and not licensed for public use.
